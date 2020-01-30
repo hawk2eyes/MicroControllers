@@ -11,6 +11,22 @@
 
 #include "OpdrachtenWeek1.h"
 
+typedef struct {
+	unsigned char data;
+	unsigned int delay ;
+} PATTERN_STRUCT;
+
+PATTERN_STRUCT pattern[] = {
+	{0x00, 100}, {0x01, 100}, {0x02, 100}, {0x04, 100}, {0x10, 100}, {0x20, 100}, {0x40, 100}, {0x80, 100},
+	{0x00, 100},
+	{0xAA,  50}, {0x55,  50},
+	{0xAA,  50}, {0x55,  50},
+	{0xAA,  50}, {0x55,  50},
+	{0x00, 100},
+	{0x81, 100}, {0x42, 100}, {0x24, 100}, {0x18, 100}, {0x0F, 200}, {0xF0, 200}, {0x0F, 200}, {0xF0, 200},
+	{0x00, 0x00}
+};
+
 void wait( int ms )
 {
 	for (int i=0; i<ms; i++)
@@ -75,6 +91,33 @@ void opdracht_3()
 			}
 		}
 	}
+}
+
+void opdracht_4()
+{
+	wipe(); // turns all leds off
+	
+	DDRA = 0xFF;
+	DDRB = 0xFF;
+	DDRC = 0xFF;
+	DDRD = 0xFF;
+	
+	while (1)
+	{
+		int index = 0;
+		while (pattern[index].delay != 0) {
+			PORTA = pattern[index].data;
+			PORTB = pattern[index].data;
+			PORTC = pattern[index].data;
+			PORTD = pattern[index].data;
+			wait(pattern[index].delay);
+			index++;
+		}
+		
+		
+	}
+	
+	
 }
 
 void wipe ()

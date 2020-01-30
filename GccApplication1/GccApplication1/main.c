@@ -8,6 +8,8 @@
 int main(void)
 {
 	//opdracht_1();
-	opdracht_3();
+	//opdracht_2();
+	//opdracht_3();
+	opdracht_4();
 	return 0;
 }

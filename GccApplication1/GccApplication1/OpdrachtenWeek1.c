@@ -57,15 +57,35 @@ void opdracht_2()
 	}
 }
 
+void opdracht_3()
+{
+	wipe(); // turns all leds off
+	
+	DDRD = 0xFF;
+	
+	while (1)
+	{
+		for (int i = 1; i < 100 ; i++)
+		{
+			int LedValue = 0b00000001;
+			for (int i = 0; i < 8; i++)
+			{
+				wait(50);
+				PORTD = LedValue << i;
+			}
+		}
+	}
+}
+
 void wipe ()
 {
-	DDRA = 0b11111111;
-	DDRB = 0b11111111;
-	DDRC = 0b11111111;
-	DDRD = 0b11111111;
-	DDRE = 0b11111111;
-	DDRF = 0b11111111;
-	DDRG = 0b11111111;
+	DDRA = 0xFF;
+	DDRB = 0xFF;
+	DDRC = 0xFF;
+	DDRD = 0xFF;
+	DDRE = 0xFF;
+	DDRF = 0xFF;
+	DDRG = 0xFF;
 	
 	PORTA = 0x00;
 	PORTB = 0x00;

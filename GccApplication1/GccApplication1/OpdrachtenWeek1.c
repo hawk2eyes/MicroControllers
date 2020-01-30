@@ -34,6 +34,29 @@ void opdracht_1()
 	}
 }
 
+void opdracht_2()
+{
+	wipe(); // turns all leds off
+	
+	DDRD = 0b11111111;
+	PINC = 0x01;
+	
+	while (1)
+	{
+		if (PINC & 0x01)
+		{
+			PORTD = 0b10000000;
+			wait(500);
+			PORTD = 0x00;
+			wait(500);
+		}
+		else 
+		{
+			PORTD = 0x00;
+		}
+	}
+}
+
 void wipe ()
 {
 	DDRA = 0b11111111;

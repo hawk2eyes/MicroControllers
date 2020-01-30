@@ -7,6 +7,7 @@
 
 int main(void)
 {
-	opdracht_1();
+	//opdracht_1();
+	opdracht_2();
 	return 0;
 }

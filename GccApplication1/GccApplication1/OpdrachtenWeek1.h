@@ -1,8 +1,8 @@
 /*
- * OpdrachtW1B2.h
+ * OpdrachtenWeek1.h
  *
  * Created: 30/01/2020 11:03:32
- *  Author: jelme
+ *  Author: jelmer
  */ 
 #pragma once
 

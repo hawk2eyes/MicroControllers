@@ -138,13 +138,10 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MyHeader.h">
+    <Compile Include="OpdrachtenWeek1.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="OpdrachtW1B2.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="OpdrachtW1B2.h">
+    <Compile Include="OpdrachtenWeek1.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

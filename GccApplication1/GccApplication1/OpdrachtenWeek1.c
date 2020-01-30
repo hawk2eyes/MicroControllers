@@ -1,5 +1,5 @@
 /*
- * OpdrachtW1B2.c
+ * OpdrachtenWeek1.c
  *
  * Created: 30/01/2020 10:53:39
  *  Author: jelmer
@@ -9,7 +9,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "OpdrachtW1B2.h"
+#include "OpdrachtenWeek1.h"
 
 void wait( int ms )
 {

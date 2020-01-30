@@ -8,4 +8,5 @@
 
 void wait(int);
 void opdracht_1();
+void opdracht_2();
 void wipe();

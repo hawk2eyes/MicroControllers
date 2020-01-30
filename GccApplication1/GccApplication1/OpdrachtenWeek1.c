@@ -113,11 +113,52 @@ void opdracht_4()
 			wait(pattern[index].delay);
 			index++;
 		}
-		
-		
 	}
+}
+
+void opdracht_5()
+{
+	wipe(); // turns all leds off
 	
+	DDRD = 0xFF;
+	PINC = 0x01;
 	
+	int state = 1000;
+	
+	while (1)
+	{
+		PORTD = 0b10000000;
+		for (int i = 0; i < state; i++)
+		{
+				wait(1)
+				if (PINC & 0x01)
+				{
+					if (state == 1000)
+					{
+						state = 250;
+						} else {
+						state = 1000;
+					}
+					break;
+				}
+		} 
+		PORTD = 0x00;
+		for (int i = 0; i < state; i++)
+		{
+			wait(1)
+			if (PINC & 0x01)
+			{
+				if (state == 1000)
+				{
+					state = 250;
+					} else {
+					state = 1000;
+				}
+				break;
+			}
+		}
+	}
+		
 }
 
 void wipe ()

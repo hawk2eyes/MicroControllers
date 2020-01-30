@@ -23,23 +23,14 @@ void opdracht_1()
 {
 	wipe(); // turns all leds off
 	
-	PINC = 0x01;
-	PORTD = 0x80;
+	DDRD = 0b11111111;
 	
 	while (1)
 	{
-		if (PINC & 0x80)
-		{
-			PORTD = 0xFF;			// Write 10101010b PORTD
-			wait( 250 );
-			PORTD = 0x00;			// Write 01010101b PORTD
-			wait( 250 );
-
-		}
-		else
-		{
-			PORTD = 0x00;				// write 0 to all the bits of PortD
-		}		
+		PORTD = 0xAA;			// Write 10101010b PORTD
+		wait( 500 );
+		PORTD = 0x55;			// Write 01010101b PORTD
+		wait( 500 );
 	}
 }
 

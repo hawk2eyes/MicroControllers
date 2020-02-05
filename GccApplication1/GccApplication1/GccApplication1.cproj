@@ -141,7 +141,10 @@
     <Compile Include="OpdrachtenWeek1.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="OpdrachtenWeek1.h">
+    <Compile Include="OpdrachtenHeader.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="OpdrachtenWeek2.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

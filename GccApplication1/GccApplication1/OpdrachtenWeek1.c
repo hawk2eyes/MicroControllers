@@ -205,7 +205,7 @@ void wait( int ms )
 	}
 }
 
-void opdracht_1()
+void week1_opdracht_1()
 {
 	wipe(); // turns all leds off
 	
@@ -220,7 +220,7 @@ void opdracht_1()
 	}
 }
 
-void opdracht_2()
+void week1_opdracht_2()
 {
 	wipe(); // turns all leds off
 	
@@ -243,7 +243,7 @@ void opdracht_2()
 	}
 }
 
-void opdracht_3()
+void week1_opdracht_3()
 {
 	wipe(); // turns all leds off
 	
@@ -263,7 +263,7 @@ void opdracht_3()
 	}
 }
 
-void opdracht_4()
+void week1_opdracht_4()
 {
 	wipe(); // turns all leds off
 	
@@ -286,7 +286,7 @@ void opdracht_4()
 	}
 }
 
-void opdracht_5()
+void week1_opdracht_5()
 {
 	wipe(); // turns all leds off
 	
@@ -331,7 +331,7 @@ void opdracht_5()
 		
 }
 
-void opdracht_6(){
+void week1_opdracht_6(){
 	
 	wipe();
 	

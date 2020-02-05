@@ -3,15 +3,16 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "OpdrachtenWeek1.h"
+#include "OpdrachtenHeader.h"
 
 int main(void)
 {
-	//opdracht_1();
-	//opdracht_2();
-	//opdracht_3();
-	//opdracht_4();
-	//opdracht_5();
-	opdracht_6();
+	//week1_opdracht_1();
+	//week1_opdracht_2();
+	//week1_opdracht_3();
+	//week1_opdracht_4();
+	//week1_opdracht_5();
+	//week1_opdracht_6();
+	week2_opdracht1();
 	return 0;
 }

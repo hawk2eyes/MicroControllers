@@ -17,13 +17,7 @@
 
 
 /******************************************************************/
-void wait( int ms )
-{
-	for (int i=0; i<ms; i++)
-	{
-		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
-	}
-}
+
 
 /******************************************************************/
 ISR( INT0_vect )
@@ -38,7 +32,7 @@ ISR( INT1_vect )
 }
 
 /******************************************************************/
-void week2_opdracht_1()
+void week2_opdracht1()
 {
 	// Init I/O
 	DDRD = 0xF0;			// PORTD(7:4) output, PORTD(3:0) input	
@@ -56,7 +50,5 @@ void week2_opdracht_1()
 		PORTD ^= (1<<7);	// Toggle PORTD.7
 		wait( 500 );								
 	}
-
-	return 1;
 }
 

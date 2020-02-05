@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "OpdrachtenWeek1.h"
+#include "OpdrachtenHeader.h"
 
 typedef struct {
 	unsigned char data;
@@ -196,15 +196,6 @@ void end(void){
 	printf("end\n");
 }
 
-
-void wait( int ms )
-{
-	for (int i=0; i<ms; i++)
-	{
-		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
-	}
-}
-
 void week1_opdracht_1()
 {
 	wipe(); // turns all leds off
@@ -353,23 +344,4 @@ void week1_opdracht_6(){
 		}
 
 	}
-}
-
-void wipe ()
-{
-	DDRA = 0xFF;
-	DDRB = 0xFF;
-	DDRC = 0xFF;
-	DDRD = 0xFF;
-	DDRE = 0xFF;
-	DDRF = 0xFF;
-	DDRG = 0xFF;
-	
-	PORTA = 0x00;
-	PORTB = 0x00;
-	PORTC = 0x00;
-	PORTD = 0x00;
-	PORTE = 0x00;
-	PORTF = 0x00;
-	PORTG = 0x00;
 }

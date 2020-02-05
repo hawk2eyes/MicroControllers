@@ -161,6 +161,22 @@ void opdracht_5()
 		
 }
 
+void opdracht_6()
+{
+	wipe(); // turns all leds off
+	
+	DDRD = 0xFF;
+	PINC = 0x01;
+	
+	int state = 1000;
+	
+	while (1)
+	{
+		
+	}
+	
+}
+
 void wipe ()
 {
 	DDRA = 0xFF;

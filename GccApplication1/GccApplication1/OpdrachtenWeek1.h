@@ -12,4 +12,5 @@ void opdracht_2();
 void opdracht_3();
 void opdracht_4();
 void opdracht_5();
+void opdracht_6();
 void wipe();

@@ -11,6 +11,7 @@ int main(void)
 	//opdracht_2();
 	//opdracht_3();
 	//opdracht_4();
-	opdracht_5();
+	//opdracht_5();
+	opdracht_6();
 	return 0;
 }

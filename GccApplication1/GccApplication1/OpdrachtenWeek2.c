@@ -14,41 +14,29 @@
 
 #include "OpdrachtenHeader.h"
 
-
-
-/******************************************************************/
-
-
-/******************************************************************/
-ISR( INT0_vect )
-{
-    PORTD |= (1<<5);		
-}
-
-/******************************************************************/
-ISR( INT1_vect )
-{
-    PORTD &= ~(1<<5);		
-}
-
-/******************************************************************/
 void week2_opdracht1()
 {
+	wipe();
 	// Init I/O
-	DDRD = 0xF0;			// PORTD(7:4) output, PORTD(3:0) input	
+	DDRD = 0xFF;			// PORTD(7) output, PORTD(6:0) input
 
-	// Init Interrupt hardware
-	EICRA |= 0x0B;			// INT1 falling edge, INT0 rising edge
-	EIMSK |= 0x03;			// Enable INT1 & INT0
+	// Init LCD
+	init_4bits_mode();
+
+	// Write sample string
+	lcd_write_string("Shift");
 	
-	// Enable global interrupt system
-	//SREG = 0x80;			// Of direct via SREG of via wrapper
-	sei();				
-
+	int i = 1;
+	// Loop forever
 	while (1)
 	{
 		PORTD ^= (1<<7);	// Toggle PORTD.7
-		wait( 500 );								
+		clear_screen();
+		lcd_write_string("Shift + " + i);
+		//wait( 250 );
+		_delay_ms(250);
+		i++;
 	}
+
 }
 

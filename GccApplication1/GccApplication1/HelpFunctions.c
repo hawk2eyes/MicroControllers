@@ -123,8 +123,5 @@ void clear_screen()
 
 void move_to_right()
 {
-	PORTC = 0x00;
-	lcd_strobe_lcd_e();
-	PORTC = 0x18;
-	lcd_strobe_lcd_e();
+	lcd_write_command(0b00011110);
 }

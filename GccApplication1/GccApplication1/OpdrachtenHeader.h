@@ -23,3 +23,5 @@ void lcd_write_data(unsigned char byte);
 void lcd_write_cmd(unsigned char byte);
 void clear_screen();
 void move_to_right();
+
+void ioisrMain();

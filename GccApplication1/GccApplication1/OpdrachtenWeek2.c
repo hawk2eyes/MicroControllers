@@ -31,10 +31,8 @@ void week2_opdracht1()
 	while (1)
 	{
 		PORTD ^= (1<<7);	// Toggle PORTD.7
-		clear_screen();
-		lcd_write_string("Shift + " + i);
-		//wait( 250 );
-		_delay_ms(250);
+		move_to_right();
+		wait( 1000 );
 		i++;
 	}
 

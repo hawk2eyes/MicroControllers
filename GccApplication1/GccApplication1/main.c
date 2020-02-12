@@ -13,6 +13,8 @@ int main(void)
 	//week1_opdracht_4();
 	//week1_opdracht_5();
 	//week1_opdracht_6();
-	week2_opdracht1();
+	//week2_opdracht_1();
+	//week2_opdracht_B3();
+	week2_opdracht_B4();
 	return 0;
 }

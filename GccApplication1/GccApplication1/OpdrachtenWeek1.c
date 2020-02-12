@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "OpdrachtenWeek1.h"
+#include "OpdrachtenHeader.h"
 
 typedef struct {
 	unsigned char data;

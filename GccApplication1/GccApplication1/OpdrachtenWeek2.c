@@ -14,30 +14,51 @@
 
 #include "OpdrachtenHeader.h"
 
+void display(int number);
 
+typedef struct {
+	unsigned char data;
+	unsigned int delay ;
+} PATTERN_STRUCT;
 
-/******************************************************************/
-void wait( int ms )
+PATTERN_STRUCT pattern2[] = 
 {
-	for (int i=0; i<ms; i++)
-	{
-		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
-	}
-}
+	{0x80, 150}, {0x00, 150},
+	{0x80, 150}, {0x00, 150},
+	{0x01, 150}, {0x02, 150}, {0x40, 150}, {0x20, 150},
+	{0x01, 150}, {0x02, 150}, {0x40, 150}, {0x20, 150},
+	{0x00, 150},
+	{0x01, 150}, {0x03, 150}, {0x43, 150}, {0x63, 150},
+	{0x01, 150}, {0x03, 150}, {0x43, 150}, {0x63, 150},
+	{0x00, 150},
+	{0xFF, 0}
+};
 
-/******************************************************************/
 ISR( INT0_vect )
 {
     PORTD |= (1<<5);		
 }
 
-/******************************************************************/
 ISR( INT1_vect )
 {
     PORTD &= ~(1<<5);		
 }
 
-/******************************************************************/
+const unsigned char
+Numbers [10] =
+{
+	0b00111111, // 0
+	0b00000110, // 1
+	0b01011011, // 2
+	0b01001111, // 3
+	0b01100110, // 4
+	0b01101101, // 5
+	0b01111101, // 6
+	0b00000111, // 7
+	0b01111111, // 8
+	0b01101111, // 9
+};
+
 void week2_opdracht_1()
 {
 	// Init I/O
@@ -56,7 +77,38 @@ void week2_opdracht_1()
 		PORTD ^= (1<<7);	// Toggle PORTD.7
 		wait( 500 );								
 	}
-
-	return 1;
 }
+void week2_opdracht_B3()
+{
+	for (int i = 0; i < 10; ++i)
+	{
+		wait(1000);
+		display(i);
+	}
+}
+
+void week2_opdracht_B4()
+{
+	DDRD = 0b11111111;
+	
+	while (1==1)
+	{
+
+		int index = 0;
+
+		while( pattern2[index].delay != 0 )
+		{
+			PORTD = pattern2[index].data;
+			wait(pattern2[index].delay);
+			index++;
+		}
+	}
+}
+
+void display(int number)
+{
+	DDRB = 0xFF;
+	PORTB = Numbers[number];
+}
+
 

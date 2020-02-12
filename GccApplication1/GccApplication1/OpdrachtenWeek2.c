@@ -15,20 +15,13 @@
 #include "OpdrachtenHeader.h"
 
 void display(int number);
-void week2_opdracht1()
-{
-	wipe();
-	// Init I/O
-	DDRD = 0xFF;			// PORTD(7) output, PORTD(6:0) input
 
 typedef struct {
 	unsigned char data;
 	unsigned int delay ;
 } PATTERN_STRUCT;
-	// Init LCD
-	init_4bits_mode();
 
-PATTERN_STRUCT pattern2[] = 
+PATTERN_STRUCT pattern2[] =
 {
 	{0x80, 150}, {0x00, 150},
 	{0x80, 150}, {0x00, 150},
@@ -40,6 +33,31 @@ PATTERN_STRUCT pattern2[] =
 	{0x00, 150},
 	{0xFF, 0}
 };
+
+const unsigned char
+Numbers [10] =
+{
+	0b00111111, // 0
+	0b00000110, // 1
+	0b01011011, // 2
+	0b01001111, // 3
+	0b01100110, // 4
+	0b01101101, // 5
+	0b01111101, // 6
+	0b00000111, // 7
+	0b01111111, // 8
+	0b01101111, // 9
+};
+
+void week2_opdracht1()
+{
+	wipe();
+	// Init I/O
+	DDRD = 0xFF;			// PORTD(7) output, PORTD(6:0) input
+
+	// Init LCD
+	init_4bits_mode();
+
 	// Write sample string
 	lcd_write_string("Shift");
 	
@@ -59,7 +77,6 @@ void week2_opdrachtb2() {
 	// Init I/O
 	DDRA = 0xFF;			// PORTD(7:4) output, PORTD(3:0) input
 	DDRD = 0x06;
-
 
 	PORTA = 0x01;
 	// Init Interrupt hardware
@@ -81,23 +98,7 @@ ISR( INT1_vect )
 	//PORTA = 0xFF;
 }
 
-const unsigned char
-Numbers [10] =
-{
-	0b00111111, // 0
-	0b00000110, // 1
-	0b01011011, // 2
-	0b01001111, // 3
-	0b01100110, // 4
-	0b01101101, // 5
-	0b01111101, // 6
-	0b00000111, // 7
-	0b01111111, // 8
-	0b01101111, // 9
-};
-
-void week2_opdracht_1()
-ISR( INT2_vect )
+ISR(INT2_vect)
 {
 	PORTA = (PORTA<<1);
 	//PORTA = 0x00;
@@ -122,6 +123,7 @@ void ioisrMain()
 		wait( 500 );
 	}
 }
+
 void week2_opdracht_B3()
 {
 	for (int i = 0; i < 10; ++i)

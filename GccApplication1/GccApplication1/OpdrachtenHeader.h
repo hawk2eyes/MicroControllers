@@ -15,7 +15,6 @@ void week1_opdracht_5();
 void week1_opdracht_6();
 void week2_opdracht1();
 void week2_opdrachtb2();
-void week2_opdracht_1();
 void week2_opdracht_B3();
 void week2_opdracht_B4();
 void wipe();

@@ -15,11 +15,18 @@
 #include "OpdrachtenHeader.h"
 
 void display(int number);
+void week2_opdracht1()
+{
+	wipe();
+	// Init I/O
+	DDRD = 0xFF;			// PORTD(7) output, PORTD(6:0) input
 
 typedef struct {
 	unsigned char data;
 	unsigned int delay ;
 } PATTERN_STRUCT;
+	// Init LCD
+	init_4bits_mode();
 
 PATTERN_STRUCT pattern2[] = 
 {
@@ -33,15 +40,45 @@ PATTERN_STRUCT pattern2[] =
 	{0x00, 150},
 	{0xFF, 0}
 };
+	// Write sample string
+	lcd_write_string("Shift");
+	
+	int i = 1;
+	// Loop forever
+	while (1)
+	{
+		PORTD ^= (1<<7);	// Toggle PORTD.7
+		move_to_right();
+		wait( 1000 );
+		i++;
+	}
 
-ISR( INT0_vect )
-{
-    PORTD |= (1<<5);		
+}
+
+void week2_opdrachtb2() {
+	// Init I/O
+	DDRA = 0xFF;			// PORTD(7:4) output, PORTD(3:0) input
+	DDRD = 0x06;
+
+
+	PORTA = 0x01;
+	// Init Interrupt hardware
+	EICRA |= 0x2C;			// INT2 falling edge, INT1 rising edge 0b00101100
+	EIMSK |= 0x06;			// Enable INT1 & INT2
+	
+	// Enable global interrupt system
+	//SREG = 0x80;			// Of direct via SREG of via wrapper
+	sei();
+	
+	while(1) {
+		wait(1);
+	}
 }
 
 ISR( INT1_vect )
 {
-    PORTD &= ~(1<<5);		
+	PORTA = (PORTA>>1);
+	//PORTA = 0xFF;
 }
 
 const unsigned char
@@ -60,22 +97,29 @@ Numbers [10] =
 };
 
 void week2_opdracht_1()
+ISR( INT2_vect )
+{
+	PORTA = (PORTA<<1);
+	//PORTA = 0x00;
+}
+
+void ioisrMain()
 {
 	// Init I/O
-	DDRD = 0xF0;			// PORTD(7:4) output, PORTD(3:0) input	
+	DDRD = 0xF0;			// PORTD(7:4) output, PORTD(3:0) input
 
 	// Init Interrupt hardware
-	EICRA |= 0x0B;			// INT1 falling edge, INT0 rising edge
+	EICRA |= 0x0F;			// INT1 falling edge, INT0 rising edge 0b00001111
 	EIMSK |= 0x03;			// Enable INT1 & INT0
 	
 	// Enable global interrupt system
 	//SREG = 0x80;			// Of direct via SREG of via wrapper
-	sei();				
+	sei();					
 
 	while (1)
 	{
 		PORTD ^= (1<<7);	// Toggle PORTD.7
-		wait( 500 );								
+		wait( 500 );
 	}
 }
 void week2_opdracht_B3()

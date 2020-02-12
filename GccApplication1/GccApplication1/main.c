@@ -4,6 +4,7 @@
 #include <util/delay.h>
 
 #include "OpdrachtenHeader.h"
+#include "lcd.h"
 
 int main(void)
 {
@@ -17,6 +18,8 @@ int main(void)
 	//ioisrMain();
 	//week2_opdrachtb2();
 	//week2_opdracht_B3();
-	week2_opdracht_B4();
+	//week2_opdracht_B4();
+	init();
+	set_cursor(5);
 	return 0;
 }

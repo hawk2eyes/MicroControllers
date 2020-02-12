@@ -2,7 +2,7 @@
  * OpdrachtenWeek2.c
  *
  * Created: 5-2-2020 10:48:41
- *  Author: thijz
+ *  Author: thijz, jelmer, bart
  */ 
 #define F_CPU 8e6
 
@@ -13,6 +13,7 @@
 #include <avr/interrupt.h>
 
 #include "OpdrachtenHeader.h"
+#include "lcd.h"
 
 void display(int number);
 
@@ -56,10 +57,10 @@ void week2_opdracht1()
 	DDRD = 0xFF;			// PORTD(7) output, PORTD(6:0) input
 
 	// Init LCD
-	init_4bits_mode();
+	init();
 
 	// Write sample string
-	lcd_write_string("Shift");
+	display_text("Shift");
 	
 	int i = 1;
 	// Loop forever

@@ -19,12 +19,4 @@ void week2_opdracht_B3();
 void week2_opdracht_B4();
 void wipe();
 
-void lcd_strobe_lcd_e(void);
-void init_4bits_mode(void);
-void lcd_write_string(char *str);
-void lcd_write_data(unsigned char byte);
-void lcd_write_cmd(unsigned char byte);
-void clear_screen();
-void move_to_right();
-
 void ioisrMain();

@@ -38,52 +38,50 @@ void week2_opdracht1()
 
 }
 
-ISR( INT0_vect )
-/*
-short:			ISR INT0
-inputs:
-outputs:
-notes:			Set PORTD.5
-Version :    	DMK, Initial code
-*******************************************************************/
-{
-	PORTD |= (1<<5);
+void week2_opdrachtb2() {
+	// Init I/O
+	DDRA = 0xFF;			// PORTD(7:4) output, PORTD(3:0) input
+	DDRD = 0x06;
+
+
+	PORTA = 0x01;
+	// Init Interrupt hardware
+	EICRA |= 0x2C;			// INT2 falling edge, INT1 rising edge 0b00101100
+	EIMSK |= 0x06;			// Enable INT1 & INT2
+	
+	// Enable global interrupt system
+	//SREG = 0x80;			// Of direct via SREG of via wrapper
+	sei();
+	
+	while(1) {
+		wait(1);
+	}
 }
 
-/******************************************************************/
 ISR( INT1_vect )
-/*
-short:			ISR INT1
-inputs:
-outputs:
-notes:			Clear PORTD.5
-Version :    	DMK, Initial code
-*******************************************************************/
 {
-	PORTD &= ~(1<<5);
+	PORTA = (PORTA>>1);
+	//PORTA = 0xFF;
 }
 
-/******************************************************************/
+ISR( INT2_vect )
+{
+	PORTA = (PORTA<<1);
+	//PORTA = 0x00;
+}
 
 void ioisrMain()
-/*
-short:			main() loop, entry point of executable
-inputs:
-outputs:
-notes:			Slow background task after init ISR
-Version :    	DMK, Initial code
-*******************************************************************/
 {
 	// Init I/O
 	DDRD = 0xF0;			// PORTD(7:4) output, PORTD(3:0) input
 
 	// Init Interrupt hardware
-	EICRA |= 0x0B;			// INT1 falling edge, INT0 rising edge
+	EICRA |= 0x0F;			// INT1 falling edge, INT0 rising edge 0b00001111
 	EIMSK |= 0x03;			// Enable INT1 & INT0
 	
 	// Enable global interrupt system
 	//SREG = 0x80;			// Of direct via SREG of via wrapper
-	sei();
+	sei();					
 
 	while (1)
 	{

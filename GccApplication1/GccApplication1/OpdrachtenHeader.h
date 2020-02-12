@@ -14,6 +14,7 @@ void week1_opdracht_4();
 void week1_opdracht_5();
 void week1_opdracht_6();
 void week2_opdracht1();
+void week2_opdrachtb2();
 void wipe();
 
 void lcd_strobe_lcd_e(void);

@@ -14,6 +14,7 @@ int main(void)
 	//week1_opdracht_5();
 	//week1_opdracht_6();
 	//week2_opdracht1();
-	ioisrMain();
+	//ioisrMain();
+	week2_opdrachtb2();
 	return 0;
 }

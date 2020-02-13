@@ -17,6 +17,7 @@ void week2_opdracht1();
 void week2_opdrachtb2();
 void week2_opdracht_B3();
 void week2_opdracht_B4();
-void wipe();
+void week3_opdrachtB1();
 
+void wipe();
 void ioisrMain();

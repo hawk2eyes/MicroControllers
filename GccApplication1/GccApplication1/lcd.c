@@ -104,7 +104,5 @@ void set_cursor(int position)
 	{
 		lcd_write_command(0x14);
 	}
-	
-	
 }
 

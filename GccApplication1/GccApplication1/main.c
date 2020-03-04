@@ -21,6 +21,7 @@ int main(void)
 	//week2_opdracht_B4();
 	//init();
 	//set_cursor(5);
-	week3_opdrachtB1();
+	//week3_opdrachtB1();
+	week4_opdrachtB1();
 	return 0;
 }

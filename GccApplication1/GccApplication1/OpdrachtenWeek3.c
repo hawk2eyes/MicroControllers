@@ -2,7 +2,7 @@
  * OpdrachtenWeek3.c
  *
  * Created: 13/02/2020 11:02:57
- *  Author: jelme
+ *  Author: jelmer
  */ 
 
 #define F_CPU 8e6
@@ -23,7 +23,6 @@ ISR( TIMER2_OVF_vect )
 {
 	TCNT2 = -10; // Preset value
 	tenthValue++; // Increment counter
-	//memset(buffer, 0, sizeof(buffer));
     itoa(tenthValue, buffer, 10);
 	clear_screen();
 	char text[] = "value:";

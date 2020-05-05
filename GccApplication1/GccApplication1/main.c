@@ -22,7 +22,8 @@ int main(void)
 	//init();
 	//set_cursor(5);
 	//week3_opdrachtB1();
+	week3_opdrachtB2()
 	//week4_opdrachtB1();
-	week4_opdrachtB2();
+	//week4_opdrachtB2();
 	return 0;
 }

@@ -18,6 +18,7 @@ void week2_opdrachtb2();
 void week2_opdracht_B3();
 void week2_opdracht_B4();
 void week3_opdrachtB1();
+void week3_opdrachtB2()
 void week4_opdrachtB1();
 void week4_opdrachtB2();
 
